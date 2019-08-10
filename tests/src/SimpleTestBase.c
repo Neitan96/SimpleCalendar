@@ -55,5 +55,6 @@ void scTEqualMilli(int line, Milliseconds m1, Milliseconds m2){
 int main() {
 	scTExecuteAllTests();
 	scTFinalizeTests();
+	printf("\n");
 }
 
