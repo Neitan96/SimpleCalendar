@@ -3,15 +3,21 @@ SRC=./src
 HEADS=./heads
 TESTSSRC=./tests/src
 TESTSHEADS=./tests/heads
+
 OBJ=./obj
-APPS=./app
+OBJTESTS=./objtests
+LIBS=./lib
+
+FLAGS= -O3 -Wall -std=c99
+FLAGSLIB= -lsimplecalendar -L $(LIBS)
 
 makedir:
 	mkdir -p $(OBJ)
-	mkdir -p $(APPS)
+	mkdir -p $(OBJTESTS)
+	mkdir -p $(LIBS)
 
 %.o: $(SRC)/%.c
-	gcc -c $< -I $(HEADS) -o $(OBJ)/$@
+	gcc -c $< -I $(HEADS) $(FLAGS) -o $(OBJ)/$@
 
 all: makedir \
 	SimpleCalendarBase.o \
@@ -20,15 +26,19 @@ all: makedir \
 	SimpleExtract.o \
 	SimpleConverts.o
 
-tests: all
+lib: all
+	ar -rcs $(LIBS)/libsimplecalendar.a $(OBJ)/*.o
 
-	gcc -c $(TESTSSRC)/SimpleMillisecondsTest.c -I $(HEADS) -I $(TESTSHEADS) -o $(OBJ)/SimpleMillisecondsTest.o
-	gcc $(TESTSSRC)/SimpleTestBase.c $(OBJ)/*.o -I $(HEADS) -I $(TESTSHEADS) -o $(APPS)/SimpleCalendar
+tests: lib
+
+	gcc -c $(TESTSSRC)/SimpleMillisecondsTest.c -I $(HEADS) -I $(TESTSHEADS) $(FLAGS) -o $(OBJTESTS)/SimpleMillisecondsTest.o
+	gcc $(TESTSSRC)/SimpleTestBase.c $(LIBS)/libsimplecalendar.a $(OBJTESTS)/*.o -I $(HEADS) -I $(TESTSHEADS) $(FLAGS) $(FLAGSLIB) -o $(OBJTESTS)/SimpleCalendar
 
 run: tests
 
-	$(APPS)/SimpleCalendar
+	$(OBJTESTS)/SimpleCalendar
 
 clean:
 	rm -Rf $(OBJ)
-	rm -Rf $(APPS)
+	rm -Rf $(OBJTESTS)
+	rm -Rf $(LIBS)
