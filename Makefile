@@ -13,7 +13,12 @@ makedir:
 %.o: $(SRC)/%.c
 	gcc -c $< -I $(HEADS) -o $(OBJ)/$@
 
-all: makedir SimpleCalendarBase.o SimpleMilliseconds.o SimpleCalendar.o SimpleExtract.o SimpleConverts.o
+all: makedir \
+	SimpleCalendarBase.o \
+	SimpleMilliseconds.o \
+	SimpleCalendar.o \
+	SimpleExtract.o \
+	SimpleConverts.o
 
 tests: all
 
