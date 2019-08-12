@@ -5,9 +5,9 @@
  *      Author: Neitan96
  */
 
-#include "../heads/SimpleCalendarBase.h"
-#include "../heads/SimpleMilliseconds.h"
-#include "SimpleTestBase.h"
+#include "../../heads/SimpleCalendarBase.h"
+#include "../../heads/SimpleMilliseconds.h"
+#include "../heads/SimpleTestBase.h"
 
 
 /* Adds */
