@@ -29,7 +29,7 @@ void scMilliAddMonth(Milliseconds* milliseconds, int month) {
     if(month > 11 || month < -11){
     	int years = (month - (month % 12)) / 12;
     	month -= years * 12;
-    	scMAddYear(milliseconds, years);
+    	scMilliAddYear(milliseconds, years);
     }
 
     ExtractCalendar calendar = scExtractMonthFromMilliseconds(*milliseconds);
@@ -183,11 +183,11 @@ void scMilliSetYear(Milliseconds* milliseconds, int year){
 		*milliseconds += DAY_IN_MILLISECONDS;
 }
 void scMilliJumpToWeekDay(Milliseconds* milliseconds, int weekDay) {
-    int weekDayNow = scMGetWeekDay(*milliseconds);
+    int weekDayNow = scMilliGetWeekDay(*milliseconds);
     weekDayNow = weekDay - weekDayNow;
     if (weekDayNow < 0) weekDayNow += 7;
     if(weekDayNow != 0)
-    	scMAddMonthDay(milliseconds, weekDayNow);
+    	scMilliAddMonthDay(milliseconds, weekDayNow);
 }
 
 /* Gets */
@@ -210,7 +210,7 @@ int scMilliGetWeekMonth(Milliseconds milliseconds) {
     ExtractCalendar calendar = scExtractMonthDayFromMilliseconds(milliseconds);
 
     int weekMonth = 0;
-    int weekDay = scMGetWeekDay(calendar.month.milliseconds);
+    int weekDay = scMilliGetWeekDay(calendar.month.milliseconds);
     int days = calendar.monthDay.value;
 
     if (weekDay > 0) {
@@ -231,8 +231,8 @@ int scMilliGetWeekYear(Milliseconds milliseconds) {
     ExtractCalendar calendar = scExtractMonthDayFromMilliseconds(milliseconds);
 
     int weekYear = 0;
-    int weekDay = scMGetWeekDay(calendar.year.milliseconds);
-    int days = scMGetYearDay(milliseconds);
+    int weekDay = scMilliGetWeekDay(calendar.year.milliseconds);
+    int days = scMilliGetYearDay(milliseconds);
 
     if (weekDay > 0) {
         weekYear++;
