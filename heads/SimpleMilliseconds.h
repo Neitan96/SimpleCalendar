@@ -10,49 +10,47 @@
 
 #include "SimpleCalendarBase.h"
 
-/* Compare */
-
-int scMCompareMilliseconds(Milliseconds milliseconds, Milliseconds milliseconds2);
-
 /* Adds */
 
-void scMAddSecond(Milliseconds* milliseconds, int second);
-void scMAddMinute(Milliseconds* milliseconds, int minute);
-void scMAddHour(Milliseconds* milliseconds, int hour);
-void scMAddMonthDay(Milliseconds* milliseconds, int monthDay);
-void scMAddMonth(Milliseconds* milliseconds, int month);
-void scMAddYear(Milliseconds* milliseconds, int year);
-void scMAddWeek(Milliseconds* milliseconds, int week);
+void scMilliAddSecond(Milliseconds* milliseconds, int second);
+void scMilliAddMinute(Milliseconds* milliseconds, int minute);
+void scMilliAddHour(Milliseconds* milliseconds, int hour);
+void scMilliAddMonthDay(Milliseconds* milliseconds, int monthDay);
+void scMilliAddMonth(Milliseconds* milliseconds, int month);
+void scMilliAddYear(Milliseconds* milliseconds, int year);
+void scMilliAddWeek(Milliseconds* milliseconds, int week);
 
 /* Sets */
 
-void scMSetMillisecond(Milliseconds* milliseconds, int millisecond);
-void scMSetSecond(Milliseconds* milliseconds, int second);
-void scMSetMinute(Milliseconds* milliseconds, int minute);
-void scMSetHour(Milliseconds* milliseconds, int hour);
-void scMSetMonthDay(Milliseconds* milliseconds, int monthDay);
-void scMSetMonth(Milliseconds* milliseconds, int month);
-void scMSetYear(Milliseconds* milliseconds, int year);
-void scMJumpToWeekDay(Milliseconds* milliseconds, int weekDay);
-void scMJumpToWeekMonth(Milliseconds* milliseconds, int week);
-void scMJumpToWeekYear(Milliseconds* milliseconds, int week);
+void scMilliSetMillisecond(Milliseconds* milliseconds, int millisecond);
+void scMilliSetSecond(Milliseconds* milliseconds, int second);
+void scMilliSetMinute(Milliseconds* milliseconds, int minute);
+void scMilliSetHour(Milliseconds* milliseconds, int hour);
+void scMilliSetMonthDay(Milliseconds* milliseconds, int monthDay);
+void scMilliSetMonth(Milliseconds* milliseconds, int month);
+void scMilliSetYear(Milliseconds* milliseconds, int year);
+void scMilliJumpToWeekDay(Milliseconds* milliseconds, int weekDay);
+void scMilliJumpToWeekMonth(Milliseconds* milliseconds, int week);
+void scMilliJumpToWeekYear(Milliseconds* milliseconds, int week);
 
 /* Gets */
 
-int scMGetWeekDay(Milliseconds milliseconds);
-int scMGetYearDay(Milliseconds milliseconds);
-int scMGetWeekMonth(Milliseconds milliseconds);
-int scMGetWeekYear(Milliseconds milliseconds);
+int scMilliGetWeekDay(Milliseconds milliseconds);
+int scMilliGetYearDay(Milliseconds milliseconds);
+int scMilliGetWeekMonth(Milliseconds milliseconds);
+int scMilliGetWeekYear(Milliseconds milliseconds);
 
 /* Counts */
 
-long int scMCountMonthDay(Milliseconds milliseconds);
-long int scMCountHour(Milliseconds milliseconds);
-long long int scMCountMinute(Milliseconds milliseconds);
-long long int scMCountSecond(Milliseconds milliseconds);
+long int scMilliCountMonthDay(Milliseconds milliseconds);
+long int scMilliCountHour(Milliseconds milliseconds);
+long long int scMilliCountMinute(Milliseconds milliseconds);
+long long int scMilliCountSecond(Milliseconds milliseconds);
 
 /* Outros */
 
-void scMToString(Milliseconds milliseconds, char str[24]);
+int scMilliCompare(Milliseconds milliseconds, Milliseconds milliseconds2);
+
+void scMilliToString(Milliseconds milliseconds, char str[24]);
 
 #endif /* SIMPLEMILLISECONDS */

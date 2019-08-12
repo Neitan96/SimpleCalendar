@@ -10,41 +10,48 @@
 
 #include "SimpleCalendarBase.h"
 
-
-/* Compare */
-
-int scCCompareCalendar(Calendar calendar, Calendar calendar2);
-
 /* Adds */
 
-void scCAddMillisecond(Calendar* calendar, int millisecond);
-void scCAddSecond(Calendar* calendar, int second);
-void scCAddMinute(Calendar* calendar, int minute);
-void scCAddHour(Calendar* calendar, int hour);
-void scCAddMonthDay(Calendar* calendar, int monthDay);
-void scCAddMonth(Calendar* calendar, int month);
-void scCAddYear(Calendar* calendar, int year);
+void scCalAddMillisecond(Calendar* calendar, int millisecond);
+void scCalAddSecond(Calendar* calendar, int second);
+void scCalAddMinute(Calendar* calendar, int minute);
+void scCalAddHour(Calendar* calendar, int hour);
+void scCalAddMonthDay(Calendar* calendar, int monthDay);
+void scCalAddMonth(Calendar* calendar, int month);
+void scCalAddYear(Calendar* calendar, int year);
+void scCalAddWeek(Calendar* calendar, int week);
 
 /* Sets */
 
-void scCSetMillisecond(Calendar* calendar, int millisecond);
-void scCSetSecond(Calendar* calendar, int second);
-void scCSetMinute(Calendar* calendar, int minute);
-void scCSetHour(Calendar* calendar, int hour);
-void scCSetMonthDay(Calendar* calendar, int monthDay);
-void scCSetMonth(Calendar* calendar, int month);
-void scCSetYear(Calendar* calendar, int year);
-void scCJumpToWeekDay(Calendar* calendar, int weekDay);
+void scCalSetMillisecond(Calendar* calendar, int millisecond);
+void scCalSetSecond(Calendar* calendar, int second);
+void scCalSetMinute(Calendar* calendar, int minute);
+void scCalSetHour(Calendar* calendar, int hour);
+void scCalSetMonthDay(Calendar* calendar, int monthDay);
+void scCalSetMonth(Calendar* calendar, int month);
+void scCalSetYear(Calendar* calendar, int year);
+void scCalJumpToWeekDay(Calendar* calendar, int weekDay);
+void scCalJumpToWeekMonth(Calendar* calendar, int week);
+void scCalJumpToWeekYear(Calendar* calendar, int week);
 
 /* Gets */
 
-int scCGetWeekDay(Calendar* calendar);
-int scCGetYearDay(Calendar* calendar);
-int scCGetWeekMonth(Calendar* calendar);
-int scCGetWeekYear(Calendar* calendar);
+int scCalGetWeekDay(Calendar* calendar);
+int scCalGetYearDay(Calendar* calendar);
+int scCalGetWeekMonth(Calendar* calendar);
+int scCalGetWeekYear(Calendar* calendar);
 
 /* Counts */
 
-/* Extracts */
+long int scCalCountMonthDay(Calendar calendar);
+long int scCalCountHour(Calendar calendar);
+long long int scCalCountMinute(Calendar calendar);
+long long int scCalCountSecond(Calendar calendar);
+
+/* Outros */
+
+int scCalCompare(Calendar calendar, Calendar calendar2);
+
+void scCalToString(Calendar calendar, char str[24]);
 
 #endif /* SIMPLECALENDAR */

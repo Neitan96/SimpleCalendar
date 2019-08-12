@@ -25,7 +25,7 @@ Funções que usa como base a struct Calendar para fazer cálculos de datas e ho
 Funções que detalha a data e hora usando o ExtractCalendar, a data pode ser detalhada com Calendar ou Milliseconds.
 
 ##### Funções bases
-Todas funções da API começa com **sc** e funções para trabalhar com milissegundos começa com **scM** e para trabalhar com Calendar começa com **scC**.
+Todas funções da API começa com **sc** e funções para trabalhar com milissegundos começa com **scMilli** e para trabalhar com Calendar começa com **scCal**.
 
 - **Bases**: Compare, DiffTime, ToString
 - **Incrementos/Decrementos**: AddMillisecond, AddSecond, AddMinute, AddHour, AddMonthDay, AddMonth, AddYear, AddWeek

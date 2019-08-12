@@ -24,7 +24,7 @@ Calendar scMillisecondsToCalendar(Milliseconds milliseconds);
 /**
  * Converte ExtractCalendar em Calendar.
  */
-Calendar scExCalendarToCalendar(ExtractCalendar extractCalendar);
+Calendar scExtractToCalendar(ExtractCalendar extractCalendar);
 
 /**
  * Cria um Milliseconds a partir de um ano, mês, dia, hora, minuto, segundo e milisegundo.
@@ -39,7 +39,7 @@ Milliseconds scCalendarToMilliseconds(Calendar calendar);
 /**
  * Converte ExtractCalendar em Milliseconds.
  */
-Milliseconds scExCalendarToMilliseconds(ExtractCalendar extractCalendar);
+Milliseconds scExtractToMilliseconds(ExtractCalendar extractCalendar);
 
 /**
  * Cria um ExtractCalendar a partir de um ano, mês, dia, hora, minuto, segundo e milisegundo.
@@ -49,12 +49,12 @@ ExtractCalendar scMakeExtractCalendar(int year, int month, int monthDay, int hou
 /**
  * Converte Calendar em ExtractCalendar.
  */
-ExtractCalendar scCalendarToExtractCalendar(Calendar calendar);
+ExtractCalendar scCalendarToExtract(Calendar calendar);
 
 /**
  * Converte Milliseconds em ExtractCalendar.
  */
-ExtractCalendar scMillisecondsToExtractCalendar(Milliseconds milliseconds);
+ExtractCalendar scMillisecondsToExtract(Milliseconds milliseconds);
 
 
 #endif /* SIMPLECONVERTS */
