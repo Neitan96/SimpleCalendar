@@ -26,13 +26,13 @@ Calendar scMakeCalendar(int year, int month, int monthDay,
 }
 
 Calendar scMillisecondsToCalendar(Milliseconds milliseconds) {
-    ExtractCalendar calendar = scMillisecondsToExtractCalendar(milliseconds);
+    ExtractCalendar calendar = scMillisecondsToExtract(milliseconds);
     return scMakeCalendar(calendar.year.value, calendar.month.value, calendar.monthDay.value,
             calendar.hour.value, calendar.minute.value, calendar.second.value,
             calendar.millisecond.value);
 }
 
-Calendar scExCalendarToCalendar(ExtractCalendar extractCalendar) {
+Calendar scExtractToCalendar(ExtractCalendar extractCalendar) {
     return scMakeCalendar(extractCalendar.year.value, extractCalendar.month.value, extractCalendar.monthDay.value,
             extractCalendar.hour.value, extractCalendar.minute.value, extractCalendar.second.value,
             extractCalendar.millisecond.value);
@@ -48,7 +48,7 @@ Milliseconds scCalendarToMilliseconds(Calendar calendar) {
             calendar.hour, calendar.minute, calendar.second, calendar.millisecond);
 }
 
-Milliseconds scExCalendarToMilliseconds(ExtractCalendar extractCalendar) {
+Milliseconds scExtractToMilliseconds(ExtractCalendar extractCalendar) {
     return extractCalendar.millisecond.milliseconds;
 }
 
@@ -57,12 +57,12 @@ ExtractCalendar scMakeExtractCalendar(int year, int month, int monthDay, int hou
     return scExtractFromCalendar(scMakeCalendar(year, month, monthDay, hour, minute, second, millisecond));
 }
 
-ExtractCalendar scCalendarToExtractCalendar(Calendar calendar) {
+ExtractCalendar scCalendarToExtract(Calendar calendar) {
     return scMakeExtractCalendar(calendar.year, calendar.month, calendar.monthDay,
             calendar.hour, calendar.minute, calendar.second,
             calendar.millisecond);
 }
 
-ExtractCalendar scMillisecondsToExtractCalendar(Milliseconds milliseconds) {
+ExtractCalendar scMillisecondsToExtract(Milliseconds milliseconds) {
     return scExtractFromMilliseconds(milliseconds);
 }
