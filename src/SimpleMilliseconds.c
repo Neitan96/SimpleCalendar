@@ -5,6 +5,7 @@
  *      Author: Neitan96
  */
 
+#include<stdio.h>
 #include "../heads/SimpleMilliseconds.h"
 #include "../heads/SimpleCalendarBase.h"
 #include "../heads/SimpleExtract.h"
@@ -272,3 +273,11 @@ long long int scMCountSecond(Milliseconds milliseconds) {
     return milliseconds / SECONDS_IN_MILLISECONDS;
 }
 
+/* Outros */
+
+void scMToString(Milliseconds milliseconds, char str[24]){
+    ExtractCalendar calendar = scExtractFromMilliseconds(milliseconds);
+    sprintf(str, "%02i/%02i/%04i %02i:%02i:%02i %03i", calendar.monthDay.value, 
+                calendar.month.value + 1, calendar.year.value, calendar.hour.value, 
+                calendar.minute.value, calendar.second.value, calendar.millisecond.value);
+}

@@ -51,4 +51,8 @@ long int scMCountHour(Milliseconds milliseconds);
 long long int scMCountMinute(Milliseconds milliseconds);
 long long int scMCountSecond(Milliseconds milliseconds);
 
+/* Outros */
+
+void scMToString(Milliseconds milliseconds, char str[24]);
+
 #endif /* SIMPLEMILLISECONDS */
