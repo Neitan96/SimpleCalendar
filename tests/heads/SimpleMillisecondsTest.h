@@ -30,23 +30,22 @@ void scMilliSetHourTest();
 void scMilliSetMonthDayTest();
 void scMilliSetMonthTest();
 void scMilliSetYearTest();
-void scMilliJumpToWeekDayTest();
-void scMilliJumpToWeekMonthTest();
-void scMilliJumpToWeekYearTest();
+void scMilliSetWeekDayTest();
+void scMilliSetWeekMonthTest();
+void scMilliSetToWeekYearTest();
 
-/* Gets */
+/* Next */
 
-void scMilliGetWeekDayTest();
-void scMilliGetYearDayTest();
-void scMilliGetWeekMonthTest();
-void scMilliGetWeekYearTest();
-
-/* Counts */
-
-void scMilliCountMonthDayTest();
-void scMilliCountHourTest();
-void scMilliCountMinuteTest();
-void scMilliCountSecondTest();
+void scMilliNextMillisecondTest();
+void scMilliNextSecondTest();
+void scMilliNextMinuteTest();
+void scMilliNextHourTest();
+void scMilliNextMonthDayTest();
+void scMilliNextMonthTest();
+void scMilliNextYearTest();
+void scMilliNextWeekDayTest();
+void scMilliNextWeekMonthTest();
+void scMilliNextWeekYearTest();
 
 /* Outros */
 

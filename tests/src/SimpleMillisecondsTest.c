@@ -368,21 +368,63 @@ void scMilliSetYearTest(){
 
 }
 
-void scMilliJumpToWeekDayTest(){
+void scMilliSetWeekMonthTest(){
 	setNewTest((char*) __func__, __FILE__);
 
 	//Sep 22 2019 15:22:00
 	Milliseconds milliseconds = 1569165720000;
 
-	scMilliJumpToWeekDay(&milliseconds, THURSDAY);
+	scMilliSetWeekMonth(&milliseconds, 1);
+	//Sep 01 2019 15:22:00
+	scTEqualMilli(__LINE__, 1567351320000, milliseconds);
+
+	scMilliSetWeekMonth(&milliseconds, 2);
+	//Sep 08 2019 15:22:00
+	scTEqualMilli(__LINE__, 1567956120000, milliseconds);
+
+	scMilliSetWeekMonth(&milliseconds, 3);
+	//Sep 15 2019 15:22:00 
+	scTEqualMilli(__LINE__, 1568560920000, milliseconds);
+
+}
+
+void scMilliSetWeekYearTest(){
+	setNewTest((char*) __func__, __FILE__);
+
+	//Sep 22 2019 15:22:00
+	Milliseconds milliseconds = 1569165720000;
+
+	scMilliSetWeekYear(&milliseconds, 1);
+	//Jan 01 2019 15:22:00
+	scTEqualMilli(__LINE__, 1546356120000, milliseconds);
+
+	scMilliSetWeekYear(&milliseconds, 20);
+	//May 12 2019 15:22:00
+	scTEqualMilli(__LINE__, 1557674520000, milliseconds);
+
+	scMilliSetWeekYear(&milliseconds, 39);
+	//Sep 22 2019 15:22:00
+	scTEqualMilli(__LINE__, 1569165720000, milliseconds);
+
+}
+
+/* Next */
+
+void scMilliNextWeekDayTest(){
+	setNewTest((char*) __func__, __FILE__);
+
+	//Sep 22 2019 15:22:00
+	Milliseconds milliseconds = 1569165720000;
+
+	scMilliNextWeekDay(&milliseconds, THURSDAY);
 	//Sep 26 2019 15:22:00
 	scTEqualMilli(__LINE__, 1569511320000, milliseconds);
 
-	scMilliJumpToWeekDay(&milliseconds, SATURDAY);
+	scMilliNextWeekDay(&milliseconds, SATURDAY);
 	//Sep 28 2019 15:22:00
 	scTEqualMilli(__LINE__, 1569684120000, milliseconds);
 
-	scMilliJumpToWeekDay(&milliseconds, SUNDAY);
+	scMilliNextWeekDay(&milliseconds, SUNDAY);
 	//Sep 29 2019 15:22:00 
 	scTEqualMilli(__LINE__, 1569770520000, milliseconds);
 
@@ -409,6 +451,10 @@ void scTestMilliseconds(){
 	scMilliSetMonthDayTest();
 	scMilliSetMonthTest();
 	scMilliSetYearTest();
-	scMilliJumpToWeekDayTest();
+	scMilliSetWeekMonthTest();
+	scMilliSetWeekYearTest();
+
+	//Next
+	scMilliNextWeekDayTest();
 	
 }
