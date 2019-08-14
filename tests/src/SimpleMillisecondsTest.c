@@ -13,7 +13,7 @@
 /* Adds */
 
 void scMilliAddSecondTest(){
-	setNewTest(__func__, __FILE__);
+	setNewTest((char*) __func__, __FILE__);
 
 	//Sep 22 2018 15:22:00
 	Milliseconds milliseconds = 1537629720000;
@@ -39,7 +39,7 @@ void scMilliAddSecondTest(){
 }
 
 void scMilliAddMinuteTest(){
-	setNewTest(__func__, __FILE__);
+	setNewTest((char*) __func__, __FILE__);
 
 	//Sep 22 2018 15:22:00
 	Milliseconds milliseconds = 1537629720000;
@@ -74,7 +74,7 @@ void scMilliAddMinuteTest(){
 }
 
 void scMilliAddHourTest(){
-	setNewTest(__func__, __FILE__);
+	setNewTest((char*) __func__, __FILE__);
 
 	//Sep 22 2018 15:22:00
 	Milliseconds milliseconds = 1537629720000;
@@ -109,7 +109,7 @@ void scMilliAddHourTest(){
 }
 
 void scMilliAddMonthDayTest(){
-	setNewTest(__func__, __FILE__);
+	setNewTest((char*) __func__, __FILE__);
 
 	//Sep 22 2018 15:22:00
 	Milliseconds milliseconds = 1537629720000;
@@ -144,7 +144,7 @@ void scMilliAddMonthDayTest(){
 }
 
 void scMilliAddMonthTest(){
-	setNewTest(__func__, __FILE__);
+	setNewTest((char*) __func__, __FILE__);
 
 	//Sep 22 2018 15:22:00
 	Milliseconds milliseconds = 1537629720000;
@@ -179,7 +179,7 @@ void scMilliAddMonthTest(){
 }
 
 void scMilliAddYearTest(){
-	setNewTest(__func__, __FILE__);
+	setNewTest((char*) __func__, __FILE__);
 
 	//Sep 22 2565 15:22:00
 	Milliseconds milliseconds = 18799312920000;
@@ -201,10 +201,32 @@ void scMilliAddYearTest(){
 
 }
 
+void scMilliAddWeekTest(){
+	setNewTest((char*) __func__, __FILE__);
+
+	//Sep 22 2019 15:22:00
+	Milliseconds milliseconds = 1569165720000;
+	scMilliAddWeek(&milliseconds, 1);
+	//Sep 29 2019 15:22:00
+	scTEqualMilli(__LINE__, 1569770520000, milliseconds);
+
+	//Sep 22 2019 15:22:00
+	milliseconds = 1569165720000;
+	scMilliAddWeek(&milliseconds, 100);
+	//Aug 22 2021 15:22:00
+	scTEqualMilli(__LINE__, 1629645720000, milliseconds);
+
+	//Sep 22 2019 15:22:00
+	milliseconds = 1569165720000;
+	scMilliAddWeek(&milliseconds, -25);
+	//Mar 31 2019 15:22:00
+	scTEqualMilli(__LINE__, 1554045720000, milliseconds);
+}
+
 /* Sets */
 
 void scMilliSetMillisecondTest(){
-	setNewTest(__func__, __FILE__);
+	setNewTest((char*) __func__, __FILE__);
 
 	//Sep 22 2565 15:22:00 000
 	Milliseconds milliseconds = 18799312920000;
@@ -227,7 +249,7 @@ void scMilliSetMillisecondTest(){
 }
 
 void scMilliSetSecondTest(){
-	setNewTest(__func__, __FILE__);
+	setNewTest((char*) __func__, __FILE__);
 
 	//Sep 22 2565 15:22:00
 	Milliseconds milliseconds = 18799312920000;
@@ -247,7 +269,7 @@ void scMilliSetSecondTest(){
 }
 
 void scMilliSetMinuteTest(){
-	setNewTest(__func__, __FILE__);
+	setNewTest((char*) __func__, __FILE__);
 
 	//Sep 22 2565 15:22:00
 	Milliseconds milliseconds = 18799312920000;
@@ -267,7 +289,7 @@ void scMilliSetMinuteTest(){
 }
 
 void scMilliSetHourTest(){
-	setNewTest(__func__, __FILE__);
+	setNewTest((char*) __func__, __FILE__);
 
 	//Sep 22 2565 15:22:00
 	Milliseconds milliseconds = 18799312920000;
@@ -287,7 +309,7 @@ void scMilliSetHourTest(){
 }
 
 void scMilliSetMonthDayTest(){
-	setNewTest(__func__, __FILE__);
+	setNewTest((char*) __func__, __FILE__);
 
 	//Sep 22 2019 15:22:00
 	Milliseconds milliseconds = 1569165720000;
@@ -307,7 +329,7 @@ void scMilliSetMonthDayTest(){
 }
 
 void scMilliSetMonthTest(){
-	setNewTest(__func__, __FILE__);
+	setNewTest((char*) __func__, __FILE__);
 
 	//Sep 22 2019 15:22:00
 	Milliseconds milliseconds = 1569165720000;
@@ -327,7 +349,7 @@ void scMilliSetMonthTest(){
 }
 
 void scMilliSetYearTest(){
-	setNewTest(__func__, __FILE__);
+	setNewTest((char*) __func__, __FILE__);
 
 	//Sep 22 2019 15:22:00
 	Milliseconds milliseconds = 1569165720000;
@@ -347,7 +369,7 @@ void scMilliSetYearTest(){
 }
 
 void scMilliJumpToWeekDayTest(){
-	setNewTest(__func__, __FILE__);
+	setNewTest((char*) __func__, __FILE__);
 
 	//Sep 22 2019 15:22:00
 	Milliseconds milliseconds = 1569165720000;
@@ -366,6 +388,8 @@ void scMilliJumpToWeekDayTest(){
 
 }
 
+/* Outros */
+
 void scTestMilliseconds(){
 
 	//Adds
@@ -374,6 +398,7 @@ void scTestMilliseconds(){
 	scMilliAddHourTest();
 	scMilliAddMonthDayTest();
 	scMilliAddMonthTest();
+	scMilliAddWeekTest();
 
 	//Sets
 	scMilliAddYearTest();
@@ -385,4 +410,5 @@ void scTestMilliseconds(){
 	scMilliSetMonthTest();
 	scMilliSetYearTest();
 	scMilliJumpToWeekDayTest();
+	
 }

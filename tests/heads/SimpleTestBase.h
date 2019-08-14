@@ -8,6 +8,7 @@
 #ifndef SIMPLETESTBASE
 #define SIMPLETESTBASE
 
+#include "../../heads/SimpleCalendarBase.h"
 
 void scTError(int line, char* params);
 

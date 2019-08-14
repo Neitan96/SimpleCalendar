@@ -7,7 +7,8 @@
 
 #include <stdio.h>
 #include <stdarg.h>
-#include "../heads/SimpleCalendarBase.h"
+#include "../../heads/SimpleCalendarBase.h"
+#include "../heads/SimpleMillisecondsTest.h"
 
 char* testNameNow;
 char* fileNow;
@@ -47,7 +48,7 @@ void scTEqualMilli(int line, Milliseconds m1, Milliseconds m2){
 	totalSubTest++;
 	if(m1 != m2){
 		char params[50];
-		sprintf(&params, "%lli, %lli", m1, m2);
+		sprintf(params, "%lli, %lli", m1, m2);
 		scTError(line, params);
 	}
 }
