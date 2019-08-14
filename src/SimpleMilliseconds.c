@@ -94,6 +94,9 @@ void scMilliAddYear(Milliseconds* milliseconds, int year){
     }
 
 }
+void scMilliAddWeek(Milliseconds* milliseconds, int week){
+    scMilliAddMonthDay(milliseconds, week*7);
+}
 
 /* Sets */
 
@@ -188,6 +191,12 @@ void scMilliJumpToWeekDay(Milliseconds* milliseconds, int weekDay) {
     if (weekDayNow < 0) weekDayNow += 7;
     if(weekDayNow != 0)
     	scMilliAddMonthDay(milliseconds, weekDayNow);
+}
+void scMilliJumpToWeekMonth(Milliseconds* milliseconds, int week){
+    //TODO
+}
+void scMilliJumpToWeekYear(Milliseconds* milliseconds, int week){
+    //TODO
 }
 
 /* Gets */
