@@ -17,7 +17,7 @@ Funções com milissegundos:
     scMilliSetYear(&dataHora, 2020);
 
     //Indo para o próximo sábado
-	scMilliJumpToWeekDay(&dataHora, SATURDAY);
+	scMilliNextWeekDay(&dataHora, SATURDAY);
 ```
 
 Funções com Calendar:
@@ -34,8 +34,8 @@ Funções com Calendar:
     //Definindo a hora como 12
     scCalSetHour(&dataHora, 12);
 
-    //Indo para a segunda semana do ano
-	scCalJumpToWeekYear(&dataHora, 2);
+    //Indo para a próxima segunda semana do ano
+	scCalNextWeekYear(&dataHora, 2);
 
     //Imprimindo a data
     printf("%i/%i/%i", dataHora.monthDay, dataHora.month+1, dataHora.year)

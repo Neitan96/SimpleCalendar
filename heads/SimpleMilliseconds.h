@@ -29,9 +29,22 @@ void scMilliSetHour(Milliseconds* milliseconds, int hour);
 void scMilliSetMonthDay(Milliseconds* milliseconds, int monthDay);
 void scMilliSetMonth(Milliseconds* milliseconds, int month);
 void scMilliSetYear(Milliseconds* milliseconds, int year);
-void scMilliJumpToWeekDay(Milliseconds* milliseconds, int weekDay);
-void scMilliJumpToWeekMonth(Milliseconds* milliseconds, int week);
-void scMilliJumpToWeekYear(Milliseconds* milliseconds, int week);
+void scMilliSetWeekDay(Milliseconds* milliseconds, int weekDay);
+void scMilliSetWeekMonth(Milliseconds* milliseconds, int weekCount);
+void scMilliSetWeekYear(Milliseconds* milliseconds, int weekCount);
+
+/* Next */
+
+void scMilliNextMillisecond(Milliseconds* milliseconds, int millisecond);
+void scMilliNextSecond(Milliseconds* milliseconds, int second);
+void scMilliNextMinute(Milliseconds* milliseconds, int minute);
+void scMilliNextHour(Milliseconds* milliseconds, int hour);
+void scMilliNextMonthDay(Milliseconds* milliseconds, int monthDay);
+void scMilliNextMonth(Milliseconds* milliseconds, int month);
+void scMilliNextYear(Milliseconds* milliseconds, int year);
+void scMilliNextWeekDay(Milliseconds* milliseconds, int weekDay);
+void scMilliNextWeekMonth(Milliseconds* milliseconds, int weekCount);
+void scMilliNextWeekYear(Milliseconds* milliseconds, int weekCount);
 
 /* Gets */
 

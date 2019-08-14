@@ -30,9 +30,22 @@ void scCalSetHour(Calendar* calendar, int hour);
 void scCalSetMonthDay(Calendar* calendar, int monthDay);
 void scCalSetMonth(Calendar* calendar, int month);
 void scCalSetYear(Calendar* calendar, int year);
-void scCalJumpToWeekDay(Calendar* calendar, int weekDay);
-void scCalJumpToWeekMonth(Calendar* calendar, int week);
-void scCalJumpToWeekYear(Calendar* calendar, int week);
+void scCalSetWeekDay(Calendar* calendar, int weekDay);
+void scCalSetWeekMonth(Calendar* calendar, int weekCount);
+void scCalSetWeekYear(Calendar* calendar, int weekCount);
+
+/* Next */
+
+void scCalNextMillisecond(Calendar* calendar, int millisecond);
+void scCalNextSecond(Calendar* calendar, int second);
+void scCalNextMinute(Calendar* calendar, int minute);
+void scCalNextHour(Calendar* calendar, int hour);
+void scCalNextMonthDay(Calendar* calendar, int monthDay);
+void scCalNextMonth(Calendar* calendar, int month);
+void scCalNextYear(Calendar* calendar, int year);
+void scCalNextWeekDay(Calendar* calendar, int weekDay);
+void scCalNextWeekMonth(Calendar* calendar, int weekCount);
+void scCalNextWeekYear(Calendar* calendar, int weekCount);
 
 /* Gets */
 
