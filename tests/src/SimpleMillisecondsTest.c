@@ -415,13 +415,58 @@ void scMilliSetWeekYearTest(){
 /* Next */
 
 void scMilliNextMillisecondTest(){
-	//TODO
+	setNewTest((char*) __func__, __FILE__);
+
+	//Sep 22 2019 15:22:00 000
+	Milliseconds milliseconds = 1569165720000;
+
+	scMilliNextMillisecond(&milliseconds, 500);
+	//Sep 22 2019 15:22:00 500
+	scTEqualMilli(__LINE__, 1569165720500, milliseconds);
+
+	scMilliNextMillisecond(&milliseconds, 400);
+	//Sep 22 2019 15:22:01 400
+	scTEqualMilli(__LINE__, 1569165721400, milliseconds);
+
+	scMilliNextMillisecond(&milliseconds, 999);
+	//Sep 22 2019 15:22:01 999
+	scTEqualMilli(__LINE__, 1569165721999, milliseconds);
 }
 void scMilliNextSecondTest(){
-	//TODO
+	setNewTest((char*) __func__, __FILE__);
+
+	//Sep 22 2019 15:22:00
+	Milliseconds milliseconds = 1569165720000;
+
+	scMilliNextSecond(&milliseconds, 30);
+	//Sep 22 2019 15:22:30
+	scTEqualMilli(__LINE__, 1569165750000, milliseconds);
+
+	scMilliNextSecond(&milliseconds, 20);
+	//Sep 22 2019 15:23:20
+	scTEqualMilli(__LINE__, 1569165800000, milliseconds);
+
+	scMilliNextSecond(&milliseconds, 59);
+	//Sep 22 2019 15:23:59
+	scTEqualMilli(__LINE__, 1569165839000, milliseconds);
 }
 void scMilliNextMinuteTest(){
-	//TODO
+	setNewTest((char*) __func__, __FILE__);
+
+	//Sep 22 2019 15:22:00
+	Milliseconds milliseconds = 1569165720000;
+
+	scMilliNextMinute(&milliseconds, 30);
+	//Sep 22 2019 15:30:00
+	scTEqualMilli(__LINE__, 1569166200000, milliseconds);
+
+	scMilliNextMinute(&milliseconds, 20);
+	//Sep 22 2019 16:20:00
+	scTEqualMilli(__LINE__, 1569169200000, milliseconds);
+
+	scMilliNextMinute(&milliseconds, 59);
+	//Sep 22 2019 16:59:00
+	scTEqualMilli(__LINE__, 1569171540000, milliseconds);
 }
 void scMilliNextHourTest(){
 	//TODO
@@ -487,6 +532,15 @@ void scTestMilliseconds(){
 	scMilliSetWeekYearTest();
 
 	//Next
+	scMilliNextMillisecondTest();
+	scMilliNextSecondTest();
+	scMilliNextMinuteTest();
+	scMilliNextHourTest();
+	scMilliNextMonthDayTest();
+	scMilliNextMonthTest();
+	scMilliNextYearTest();
 	scMilliNextWeekDayTest();
+	scMilliNextWeekMonthTest();
+	scMilliNextWeekYearTest();
 	
 }

@@ -228,13 +228,28 @@ void scMilliSetWeekYear(Milliseconds* milliseconds, int week){
 /* Next */
 
 void scMilliNextMillisecond(Milliseconds* milliseconds, int millisecond){
-    //TODO
+	if(millisecond >= 0 && millisecond < 1000){
+        int milliToAdd = *milliseconds % SECONDS_IN_MILLISECONDS;
+        milliToAdd = millisecond - milliToAdd;
+        if(milliToAdd < 1) milliToAdd += 1000;
+		*milliseconds += milliToAdd;
+    }
 }
 void scMilliNextSecond(Milliseconds* milliseconds, int second){
-    //TODO
+	if(second >= 0 && second < 60){
+        int milliToAdd = *milliseconds % MINUTE_IN_MILLISECONDS;
+        milliToAdd = second - (milliToAdd / SECONDS_IN_MILLISECONDS);
+        if(milliToAdd < 1) milliToAdd += 60;
+		*milliseconds += (Milliseconds) milliToAdd * SECONDS_IN_MILLISECONDS;
+    }
 }
 void scMilliNextMinute(Milliseconds* milliseconds, int minute){
-    //TODO
+	if(minute >= 0 && minute < 60){
+        int milliToAdd = *milliseconds % HOUR_IN_MILLISECONDS;
+        milliToAdd = minute - (milliToAdd / MINUTE_IN_MILLISECONDS);
+        if(milliToAdd < 1) milliToAdd += 60;
+		*milliseconds += (Milliseconds) milliToAdd * MINUTE_IN_MILLISECONDS;
+    }
 }
 void scMilliNextHour(Milliseconds* milliseconds, int hour){
     //TODO
@@ -252,9 +267,8 @@ void scMilliNextWeekDay(Milliseconds* milliseconds, int weekDay) {
     if(weekDay >= 0 && weekDay < 7){
         int weekDayNow = scMilliGetWeekDay(*milliseconds);
         weekDayNow = weekDay - weekDayNow;
-        if (weekDayNow < 0) weekDayNow += 7;
-        if(weekDayNow != 0)
-            scMilliAddMonthDay(milliseconds, weekDayNow);
+        if (weekDayNow < 1) weekDayNow += 7;
+        scMilliAddMonthDay(milliseconds, weekDayNow);
     }
 }
 void scMilliNextWeekMonth(Milliseconds* milliseconds, int week){
