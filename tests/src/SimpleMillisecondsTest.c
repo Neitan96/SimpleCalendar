@@ -37,7 +37,6 @@ void scMilliAddSecondTest(){
 
 
 }
-
 void scMilliAddMinuteTest(){
 	setNewTest((char*) __func__, __FILE__);
 
@@ -72,7 +71,6 @@ void scMilliAddMinuteTest(){
 	scTEqualMilli(__LINE__, 1537542000000, milliseconds);
 
 }
-
 void scMilliAddHourTest(){
 	setNewTest((char*) __func__, __FILE__);
 
@@ -107,7 +105,6 @@ void scMilliAddHourTest(){
 	scTEqualMilli(__LINE__, 1537190520000, milliseconds);
 
 }
-
 void scMilliAddMonthDayTest(){
 	setNewTest((char*) __func__, __FILE__);
 
@@ -142,7 +139,6 @@ void scMilliAddMonthDayTest(){
 	scTEqualMilli(__LINE__, 1520349720000, milliseconds);
 
 }
-
 void scMilliAddMonthTest(){
 	setNewTest((char*) __func__, __FILE__);
 
@@ -177,7 +173,6 @@ void scMilliAddMonthTest(){
 	scTEqualMilli(__LINE__, 1537629720000, milliseconds);
 
 }
-
 void scMilliAddYearTest(){
 	setNewTest((char*) __func__, __FILE__);
 
@@ -200,7 +195,6 @@ void scMilliAddYearTest(){
 	scTEqualMilli(__LINE__, 1663860120000, milliseconds);
 
 }
-
 void scMilliAddWeekTest(){
 	setNewTest((char*) __func__, __FILE__);
 
@@ -247,7 +241,6 @@ void scMilliSetMillisecondTest(){
 	scTEqualMilli(__LINE__, 18799312920156, milliseconds);
 
 }
-
 void scMilliSetSecondTest(){
 	setNewTest((char*) __func__, __FILE__);
 
@@ -267,7 +260,6 @@ void scMilliSetSecondTest(){
 	scTEqualMilli(__LINE__, 18799312960000, milliseconds);
 
 }
-
 void scMilliSetMinuteTest(){
 	setNewTest((char*) __func__, __FILE__);
 
@@ -287,7 +279,6 @@ void scMilliSetMinuteTest(){
 	scTEqualMilli(__LINE__, 18799314000000, milliseconds);
 
 }
-
 void scMilliSetHourTest(){
 	setNewTest((char*) __func__, __FILE__);
 
@@ -307,7 +298,6 @@ void scMilliSetHourTest(){
 	scTEqualMilli(__LINE__, 18799341720000, milliseconds);
 
 }
-
 void scMilliSetMonthDayTest(){
 	setNewTest((char*) __func__, __FILE__);
 
@@ -327,7 +317,6 @@ void scMilliSetMonthDayTest(){
 	scTEqualMilli(__LINE__, 1569856920000, milliseconds);
 
 }
-
 void scMilliSetMonthTest(){
 	setNewTest((char*) __func__, __FILE__);
 
@@ -347,7 +336,6 @@ void scMilliSetMonthTest(){
 	scTEqualMilli(__LINE__, 1577028120000, milliseconds);
 
 }
-
 void scMilliSetYearTest(){
 	setNewTest((char*) __func__, __FILE__);
 
@@ -367,7 +355,24 @@ void scMilliSetYearTest(){
 	scTEqualMilli(__LINE__, 31422093720000, milliseconds);
 
 }
+void scMilliSetWeekDayTest(){
+	setNewTest((char*) __func__, __FILE__);
 
+	//Sep 26 2019 15:22:00
+	Milliseconds milliseconds = 1569511320000;
+
+	scMilliSetWeekDay(&milliseconds, TUESDAY);
+	//Sep 24 2019 15:22:00
+	scTEqualMilli(__LINE__, 1569338520000, milliseconds);
+
+	scMilliSetWeekDay(&milliseconds, SATURDAY);
+	//Sep 28 2019 15:22:00
+	scTEqualMilli(__LINE__, 1569684120000, milliseconds);
+
+	scMilliSetWeekDay(&milliseconds, SUNDAY);
+	//Sep 22 2019 15:22:00
+	scTEqualMilli(__LINE__, 1569165720000, milliseconds);
+}
 void scMilliSetWeekMonthTest(){
 	setNewTest((char*) __func__, __FILE__);
 
@@ -387,7 +392,6 @@ void scMilliSetWeekMonthTest(){
 	scTEqualMilli(__LINE__, 1568560920000, milliseconds);
 
 }
-
 void scMilliSetWeekYearTest(){
 	setNewTest((char*) __func__, __FILE__);
 
@@ -410,6 +414,27 @@ void scMilliSetWeekYearTest(){
 
 /* Next */
 
+void scMilliNextMillisecondTest(){
+	//TODO
+}
+void scMilliNextSecondTest(){
+	//TODO
+}
+void scMilliNextMinuteTest(){
+	//TODO
+}
+void scMilliNextHourTest(){
+	//TODO
+}
+void scMilliNextMonthDayTest(){
+	//TODO
+}
+void scMilliNextMonthTest(){
+	//TODO
+}
+void scMilliNextYearTest(){
+	//TODO
+}
 void scMilliNextWeekDayTest(){
 	setNewTest((char*) __func__, __FILE__);
 
@@ -428,6 +453,12 @@ void scMilliNextWeekDayTest(){
 	//Sep 29 2019 15:22:00 
 	scTEqualMilli(__LINE__, 1569770520000, milliseconds);
 
+}
+void scMilliNextWeekMonthTest(){
+	//TODO
+}
+void scMilliNextWeekYearTest(){
+	//TODO
 }
 
 /* Outros */
@@ -451,6 +482,7 @@ void scTestMilliseconds(){
 	scMilliSetMonthDayTest();
 	scMilliSetMonthTest();
 	scMilliSetYearTest();
+	scMilliSetWeekDayTest();
 	scMilliSetWeekMonthTest();
 	scMilliSetWeekYearTest();
 
