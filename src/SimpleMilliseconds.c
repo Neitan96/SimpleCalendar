@@ -252,13 +252,29 @@ void scMilliNextMinute(Milliseconds* milliseconds, int minute){
     }
 }
 void scMilliNextHour(Milliseconds* milliseconds, int hour){
-    //TODO
+	if(hour >= 0 && hour < 24){
+        int milliToAdd = *milliseconds % DAY_IN_MILLISECONDS;
+        milliToAdd = hour - (milliToAdd / HOUR_IN_MILLISECONDS);
+        if(milliToAdd < 1) milliToAdd += 24;
+		*milliseconds += (Milliseconds) milliToAdd * HOUR_IN_MILLISECONDS;
+    }
 }
 void scMilliNextMonthDay(Milliseconds* milliseconds, int monthDay){
-    //TODO
+	if(monthDay > 1 && monthDay <= 31){
+        ExtractCalendar calendar = scExtractMonthDayFromMilliseconds(*milliseconds);
+        int milliToAdd = monthDay - calendar.monthDay.value;
+        if(milliToAdd < 1) 
+            milliToAdd += scTotalDaysInMonth(calendar.year.value, calendar.month.value);
+		*milliseconds += (Milliseconds) milliToAdd * DAY_IN_MILLISECONDS;
+    }
 }
 void scMilliNextMonth(Milliseconds* milliseconds, int month){
-    //TODO
+	if(month >= 0 && month < 12){
+        ExtractCalendar calendar = scExtractMonthFromMilliseconds(*milliseconds);
+        int monthToAdd = month - calendar.month.value;
+        if(monthToAdd < 1) monthToAdd += 12;
+		scMilliAddMonth(milliseconds, monthToAdd);
+    }
 }
 void scMilliNextYear(Milliseconds* milliseconds, int year){
     //TODO
