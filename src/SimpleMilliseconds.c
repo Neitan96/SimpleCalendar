@@ -276,9 +276,6 @@ void scMilliNextMonth(Milliseconds* milliseconds, int month){
 		scMilliAddMonth(milliseconds, monthToAdd);
     }
 }
-void scMilliNextYear(Milliseconds* milliseconds, int year){
-    //TODO
-}
 void scMilliNextWeekDay(Milliseconds* milliseconds, int weekDay) {
     if(weekDay >= 0 && weekDay < 7){
         int weekDayNow = scMilliGetWeekDay(*milliseconds);

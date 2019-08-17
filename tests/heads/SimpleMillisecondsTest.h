@@ -42,7 +42,6 @@ void scMilliNextMinuteTest();
 void scMilliNextHourTest();
 void scMilliNextMonthDayTest();
 void scMilliNextMonthTest();
-void scMilliNextYearTest();
 void scMilliNextWeekDayTest();
 void scMilliNextWeekMonthTest();
 void scMilliNextWeekYearTest();

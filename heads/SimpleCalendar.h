@@ -42,7 +42,6 @@ void scCalNextMinute(Calendar* calendar, int minute);
 void scCalNextHour(Calendar* calendar, int hour);
 void scCalNextMonthDay(Calendar* calendar, int monthDay);
 void scCalNextMonth(Calendar* calendar, int month);
-void scCalNextYear(Calendar* calendar, int year);
 void scCalNextWeekDay(Calendar* calendar, int weekDay);
 void scCalNextWeekMonth(Calendar* calendar, int weekCount);
 void scCalNextWeekYear(Calendar* calendar, int weekCount);
