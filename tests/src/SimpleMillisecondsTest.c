@@ -469,16 +469,58 @@ void scMilliNextMinuteTest(){
 	scTEqualMilli(__LINE__, 1569171540000, milliseconds);
 }
 void scMilliNextHourTest(){
-	//TODO
+	setNewTest((char*) __func__, __FILE__);
+
+	//Sep 22 2019 15:22:00
+	Milliseconds milliseconds = 1569165720000;
+
+	scMilliNextHour(&milliseconds, 20);
+	//Sep 22 2019 20:22:00
+	scTEqualMilli(__LINE__, 1569183720000, milliseconds);
+
+	scMilliNextHour(&milliseconds, 12);
+	//Sep 23 2019 12:22:00
+	scTEqualMilli(__LINE__, 1569241320000, milliseconds);
+
+	scMilliNextHour(&milliseconds, 23);
+	//Sep 23 2019 23:22:00
+	scTEqualMilli(__LINE__, 1569280920000, milliseconds);
 }
 void scMilliNextMonthDayTest(){
-	//TODO
+	setNewTest((char*) __func__, __FILE__);
+
+	//Sep 22 2019 15:22:00
+	Milliseconds milliseconds = 1569165720000;
+
+	scMilliNextMonthDay(&milliseconds, 30);
+	//Sep 30 2019 15:22:00
+	scTEqualMilli(__LINE__, 1569856920000, milliseconds);
+
+	scMilliNextMonthDay(&milliseconds, 7);
+	//Oct 07 2019 15:22:00
+	scTEqualMilli(__LINE__, 1570461720000, milliseconds);
+
+	scMilliNextMonthDay(&milliseconds, 14);
+	//Oct 14 2019 15:22:00
+	scTEqualMilli(__LINE__, 1571066520000, milliseconds);
 }
 void scMilliNextMonthTest(){
-	//TODO
-}
-void scMilliNextYearTest(){
-	//TODO
+	setNewTest((char*) __func__, __FILE__);
+
+	//Sep 22 2019 15:22:00
+	Milliseconds milliseconds = 1569165720000;
+
+	scMilliNextMonth(&milliseconds, DECEMBER);
+	//Dec 22 2019 15:22:00
+	scTEqualMilli(__LINE__, 1577028120000, milliseconds);
+
+	scMilliNextMonth(&milliseconds, AUGUST);
+	//Aug 22 2020 15:22:00
+	scTEqualMilli(__LINE__, 1598109720000, milliseconds);
+
+	scMilliNextMonth(&milliseconds, MAY);
+	//May 22 2021 15:22:00
+	scTEqualMilli(__LINE__, 1621696920000, milliseconds);
 }
 void scMilliNextWeekDayTest(){
 	setNewTest((char*) __func__, __FILE__);
@@ -538,7 +580,6 @@ void scTestMilliseconds(){
 	scMilliNextHourTest();
 	scMilliNextMonthDayTest();
 	scMilliNextMonthTest();
-	scMilliNextYearTest();
 	scMilliNextWeekDayTest();
 	scMilliNextWeekMonthTest();
 	scMilliNextWeekYearTest();
