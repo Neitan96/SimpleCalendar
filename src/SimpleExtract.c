@@ -16,7 +16,7 @@ ExtractCalendar scExtractYearFromCalendar(Calendar calendar){
     extractYear.milliseconds = 0;
 
     int leapYears = scCountLeapYears(1970, calendar.year);
-    extractYear.milliseconds += ((calendar.year-1970-1) - leapYears) * YEAR_365_IN_MILLISECONDS;
+    extractYear.milliseconds += ((calendar.year-1970) - leapYears) * YEAR_365_IN_MILLISECONDS;
     extractYear.milliseconds += leapYears * YEAR_366_IN_MILLISECONDS;
 
     ExtractCalendar extractCalendar;
