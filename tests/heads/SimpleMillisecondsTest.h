@@ -8,8 +8,7 @@
 #ifndef SIMPLEMILLISECONDSTEST
 #define SIMPLEMILLISECONDSTEST
 
-#include "../../heads/SimpleCalendarBase.h"
-#include "../heads/SimpleMillisecondsTest.h"
+#include "../../src/Base/SimpleCalendarBase.h"
 
 /* Adds */
 

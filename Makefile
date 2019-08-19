@@ -1,44 +1,59 @@
 
 SRC=./src
-HEADS=./heads
-TESTSSRC=./tests/src
-TESTSHEADS=./tests/heads
+TEST=./tests
+TESTS-SRC=$(TEST)/src
+TESTS-HEADS=$(TEST)/heads
 
 OBJ=./obj
-OBJTESTS=./objtests
+OBJ-LIB=$(OBJ)/Lib
+OBJ-TESTS=$(OBJ)/Tests
 LIBS=./lib
 
 FLAGS= -O3 -Wall -std=c99
 FLAGSLIB= -lsimplecalendar -L $(LIBS)
 
-makedir:
-	mkdir -p $(OBJ)
-	mkdir -p $(OBJTESTS)
-	mkdir -p $(LIBS)
-
-%.o: $(SRC)/%.c
-	gcc -c $< -I $(HEADS) $(FLAGS) -o $(OBJ)/$@
-
-all: makedir \
-	SimpleCalendarBase.o \
-	SimpleMilliseconds.o \
-	SimpleCalendar.o \
-	SimpleExtract.o \
-	SimpleConverts.o
-
-lib: all
-	ar -rcs $(LIBS)/libsimplecalendar.a $(OBJ)/*.o
-
-tests: lib
-
-	gcc -c $(TESTSSRC)/SimpleMillisecondsTest.c -I $(HEADS) -I $(TESTSHEADS) $(FLAGS) -o $(OBJTESTS)/SimpleMillisecondsTest.o
-	gcc $(TESTSSRC)/SimpleTestBase.c $(LIBS)/libsimplecalendar.a $(OBJTESTS)/*.o -I $(HEADS) -I $(TESTSHEADS) $(FLAGS) $(FLAGSLIB) -o $(OBJTESTS)/SimpleCalendar
-
-run: tests
-
-	$(OBJTESTS)/SimpleCalendar
-
 clean:
 	rm -Rf $(OBJ)
-	rm -Rf $(OBJTESTS)
 	rm -Rf $(LIBS)
+
+makedir:
+	mkdir -p $(OBJ-LIB)/Base
+	mkdir -p $(OBJ-LIB)/Calendar
+	mkdir -p $(OBJ-LIB)/Convert
+	mkdir -p $(OBJ-LIB)/Extract
+	mkdir -p $(OBJ-LIB)/Milliseconds
+	mkdir -p $(OBJ-TESTS)
+	mkdir -p $(LIBS)
+
+%.compile:
+	gcc -c $(SRC)/$*.c $(FLAGS) -o $(OBJ-LIB)/$*.o
+
+all: clean makedir \
+	Base/SimpleCalendarBase.compile \
+	Calendar/SimpleCalendarAdd.compile \
+	Calendar/SimpleCalendarGet.compile \
+	Calendar/SimpleCalendarOthers.compile \
+	Convert/SimpleConverts.compile \
+	Extract/SimpleExtract.compile \
+	Milliseconds/SimpleMillisecondsAdd.compile \
+	Milliseconds/SimpleMillisecondsCount.compile \
+	Milliseconds/SimpleMillisecondsGet.compile \
+	Milliseconds/SimpleMillisecondsNext.compile \
+	Milliseconds/SimpleMillisecondsOthers.compile \
+	Milliseconds/SimpleMillisecondsSet.compile
+
+lib: all
+	ar -rcs $(LIBS)/libsimplecalendar.a $(OBJ-LIB)/Base/*.o
+	ar -rcs $(LIBS)/libsimplecalendar.a $(OBJ-LIB)/Calendar/*.o
+	ar -rcs $(LIBS)/libsimplecalendar.a $(OBJ-LIB)/Convert/*.o
+	ar -rcs $(LIBS)/libsimplecalendar.a $(OBJ-LIB)/Extract/*.o
+	ar -rcs $(LIBS)/libsimplecalendar.a $(OBJ-LIB)/Milliseconds/*.o
+
+%.compiletest:
+	gcc -c $(TESTS-SRC)/$*.c -I $(TESTS-HEADS) $(FLAGS) -o $(OBJ-TESTS)/$*.o
+
+tests: lib SimpleMillisecondsTest.compiletest
+	gcc $(TESTS-SRC)/SimpleTestBase.c $(LIBS)/libsimplecalendar.a $(OBJ-TESTS)/*.o -I $(TESTS-HEADS) $(FLAGS) $(FLAGSLIB) -o $(OBJ-TESTS)/SimpleCalendar
+
+run: tests
+	$(OBJ-TESTS)/SimpleCalendar

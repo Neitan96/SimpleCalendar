@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <time.h>
-#include "../../heads/SimpleCalendarBase.h"
+#include "../../src/Base/SimpleCalendarBase.h"
 #include "../heads/SimpleMillisecondsTest.h"
 
 char* testNameNow;

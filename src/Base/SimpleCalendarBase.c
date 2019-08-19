@@ -2,7 +2,7 @@
 // Created by Neitan96 on 25/07/2018.
 //
 
-#include "../heads/SimpleCalendarBase.h"
+#include "SimpleCalendarBase.h"
 
 
 int scIsLeapYear(int year) {

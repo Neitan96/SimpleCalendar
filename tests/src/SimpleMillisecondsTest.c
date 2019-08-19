@@ -5,8 +5,8 @@
  *      Author: Neitan96
  */
 
-#include "../../heads/SimpleCalendarBase.h"
-#include "../../heads/SimpleMilliseconds.h"
+#include "../../src/Base/SimpleCalendarBase.h"
+#include "../../src/Milliseconds/SimpleMilliseconds.h"
 #include "../heads/SimpleTestBase.h"
 
 
@@ -542,10 +542,10 @@ void scMilliNextWeekDayTest(){
 
 }
 void scMilliNextWeekMonthTest(){
-	//TODO
+	//TODO make test Milli NextWeekMonth
 }
 void scMilliNextWeekYearTest(){
-	//TODO
+	//TODO make test Milli NextWeekYear
 }
 
 /* Outros */

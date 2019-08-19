@@ -5,8 +5,8 @@
  *      Author: Neitan96
  */
 
-#include "../heads/SimpleExtract.h"
-#include "../heads/SimpleCalendarBase.h"
+#include "SimpleExtract.h"
+#include "../Base/SimpleCalendarBase.h"
 
 
 ExtractCalendar scExtractYearFromCalendar(Calendar calendar){

@@ -5,9 +5,9 @@
  *      Author: Neitan96
  */
 
-#include "../heads/SimpleConverts.h"
-#include "../heads/SimpleCalendarBase.h"
-#include "../heads/SimpleExtract.h"
+#include "SimpleConverts.h"
+#include "../Base/SimpleCalendarBase.h"
+#include "../Extract/SimpleExtract.h"
 
 
 Calendar scMakeCalendar(int year, int month, int monthDay,
