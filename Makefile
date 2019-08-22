@@ -26,7 +26,7 @@ makedir:
 	mkdir -p $(LIBS)
 
 %.compile:
-	gcc -c $(SRC)/$*.c $(FLAGS) -o $(OBJ-LIB)/$*.o
+	gcc -c $(SRC)/$*.c $(FLAGS) $(PARAMFLAGS) -o $(OBJ-LIB)/$*.o
 
 all: clean makedir \
 	Base/SimpleCalendarBase.compile \
