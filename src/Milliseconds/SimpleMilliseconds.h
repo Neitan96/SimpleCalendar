@@ -42,8 +42,8 @@ void scMilliNextHour(Milliseconds* milliseconds, int hour);
 void scMilliNextMonthDay(Milliseconds* milliseconds, int monthDay);
 void scMilliNextMonth(Milliseconds* milliseconds, int month);
 void scMilliNextWeekDay(Milliseconds* milliseconds, int weekDay);
-void scMilliNextWeekMonth(Milliseconds* milliseconds, int weekCount);
-void scMilliNextWeekYear(Milliseconds* milliseconds, int weekCount);
+void scMilliNextWeekMonth(Milliseconds* milliseconds, int weekCount, int keepWeekDay);
+void scMilliNextWeekYear(Milliseconds* milliseconds, int weekCount, int keepWeekDay);
 
 /* Gets */
 
