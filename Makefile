@@ -56,7 +56,7 @@ compiletests: compile SimpleMillisecondsTest.compiletest
 	gcc $(TESTS-SRC)/SimpleTestBase.c $(LIBS)/libsimplecalendar.a $(OBJ-TESTS)/*.o -I $(TESTS-HEADS) $(FLAGS) $(PARAMFLAGS) $(FLAGSLIB) -o $(OBJ-TESTS)/SimpleCalendar
 
 compiledebug: 
-	make PARAMFLAGS=-g compiletests
+	make PARAMFLAGS="-g -O0" compiletests
 
 runtests: compiletests
 	$(OBJ-TESTS)/SimpleCalendar
