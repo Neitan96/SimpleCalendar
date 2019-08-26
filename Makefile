@@ -58,5 +58,5 @@ compiletests: compile SimpleMillisecondsTest.compiletest
 compiledebug: 
 	make PARAMFLAGS=-g compiletests
 
-runtests: tests
+runtests: compiletests
 	$(OBJ-TESTS)/SimpleCalendar
