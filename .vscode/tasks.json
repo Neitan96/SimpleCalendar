@@ -12,6 +12,11 @@
 			"label": "Compile Project for debug",
 			"type": "shell",
 			"command": "make compiledebug"
+		},
+		{
+			"label": "Run tests",
+			"type": "shell",
+			"command": "make runtests"
 		}
 	]
 }
