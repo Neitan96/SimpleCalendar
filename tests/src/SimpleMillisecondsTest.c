@@ -564,7 +564,24 @@ void scMilliNextWeekMonthTest(){
 	scTEqualMilli(__LINE__, 1575472920000, milliseconds);
 }
 void scMilliNextWeekYearTest(){
-	//TODO make test Milli NextWeekYear
+	setNewTest((char*) __func__, __FILE__);
+
+	//Sep 22 2019 15:22:00
+	Milliseconds milliseconds = 1569165720000;
+
+	scMilliNextWeekYear(&milliseconds, 22, 1);
+	//May 24 2020 15:22:00
+	scTEqualMilli(__LINE__, 1590333720000, milliseconds);
+
+	//Sep 28 2019 15:22:00
+	milliseconds = 1569684120000;
+	scMilliNextWeekYear(&milliseconds, 44, 1);
+	//Nov 02 2019 15:22:00
+	scTEqualMilli(__LINE__, 1572708120000, milliseconds);
+
+	scMilliNextWeekYear(&milliseconds, 7, 0);
+	//Feb 09 2020 15:22:00
+	scTEqualMilli(__LINE__, 1581261720000, milliseconds);
 }
 
 /* Outros */

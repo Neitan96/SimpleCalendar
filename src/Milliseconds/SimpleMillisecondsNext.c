@@ -106,5 +106,33 @@ void scMilliNextWeekMonth(Milliseconds* milliseconds, int week, int keepWeekDay)
 }
 
 void scMilliNextWeekYear(Milliseconds* milliseconds, int week, int keepWeekDay){
-    //TODO make Milli Next WeekYear
+    if(week > 0){
+        int weekYear = scMilliGetWeekYear(*milliseconds);
+
+		if(week > weekYear){
+			*milliseconds += (Milliseconds) ((week-weekYear) * 7) * DAY_IN_MILLISECONDS;
+			if(keepWeekDay == 0){
+				*milliseconds -= scMilliGetWeekDay(*milliseconds) * DAY_IN_MILLISECONDS;
+			}
+		}
+
+		if(week < weekYear){
+			ExtractCalendar calendar = scExtractMonthDayFromMilliseconds(*milliseconds);
+
+			int totalDaysYear = scTotalDaysInYear(calendar.year.value);
+			int yearDay = ((calendar.monthDay.milliseconds - calendar.year.milliseconds) / DAY_IN_MILLISECONDS) + 1;
+			int weekDay = scMilliGetWeekDay(*milliseconds);
+
+			Milliseconds daysToAdd;
+
+			daysToAdd = totalDaysYear - yearDay + weekDay;
+			if((daysToAdd + 1) % 7 == 0) daysToAdd += 7;
+			daysToAdd -= daysToAdd % 7;
+
+			if(keepWeekDay == 0) daysToAdd -= weekDay;
+
+			daysToAdd += (week - 1) * 7;
+			*milliseconds += daysToAdd * DAY_IN_MILLISECONDS;
+		}
+	}
 }
