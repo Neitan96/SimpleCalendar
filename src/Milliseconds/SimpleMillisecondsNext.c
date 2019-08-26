@@ -78,7 +78,10 @@ void scMilliNextWeekMonth(Milliseconds* milliseconds, int week, int keepWeekDay)
         int weekMonth = scMilliGetWeekMonth(*milliseconds);
 
 		if(week > weekMonth){
-			*milliseconds += ((week-weekMonth) * 7) * DAY_IN_MILLISECONDS;
+			*milliseconds += (Milliseconds) ((week-weekMonth) * 7) * DAY_IN_MILLISECONDS;
+			if(keepWeekDay == 0){
+				*milliseconds -= scMilliGetWeekDay(*milliseconds) * DAY_IN_MILLISECONDS;
+			}
 		}
 
 		if(week < weekMonth){
@@ -96,7 +99,7 @@ void scMilliNextWeekMonth(Milliseconds* milliseconds, int week, int keepWeekDay)
 
 			if(keepWeekDay == 0) daysToAdd -= weekDay;
 
-			daysToAdd += ((week - 1) * 7);
+			daysToAdd += (week - 1) * 7;
 			*milliseconds += daysToAdd * DAY_IN_MILLISECONDS;
 		}
 	}
