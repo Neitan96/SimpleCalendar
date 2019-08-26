@@ -28,7 +28,7 @@ makedir:
 %.compile:
 	gcc -c $(SRC)/$*.c $(FLAGS) $(PARAMFLAGS) -o $(OBJ-LIB)/$*.o
 
-all: clean makedir \
+compileobjects: clean makedir \
 	Base/SimpleCalendarBase.compile \
 	Calendar/SimpleCalendarAdd.compile \
 	Calendar/SimpleCalendarGet.compile \
@@ -42,7 +42,7 @@ all: clean makedir \
 	Milliseconds/SimpleMillisecondsOthers.compile \
 	Milliseconds/SimpleMillisecondsSet.compile
 
-lib: all
+compile: compileobjects
 	ar -rcs $(LIBS)/libsimplecalendar.a $(OBJ-LIB)/Base/*.o
 	ar -rcs $(LIBS)/libsimplecalendar.a $(OBJ-LIB)/Calendar/*.o
 	ar -rcs $(LIBS)/libsimplecalendar.a $(OBJ-LIB)/Convert/*.o
@@ -50,10 +50,13 @@ lib: all
 	ar -rcs $(LIBS)/libsimplecalendar.a $(OBJ-LIB)/Milliseconds/*.o
 
 %.compiletest:
-	gcc -c $(TESTS-SRC)/$*.c -I $(TESTS-HEADS) $(FLAGS) -o $(OBJ-TESTS)/$*.o
+	gcc -c $(TESTS-SRC)/$*.c -I $(TESTS-HEADS) $(FLAGS) $(PARAMFLAGS) -o $(OBJ-TESTS)/$*.o
 
-tests: lib SimpleMillisecondsTest.compiletest
-	gcc $(TESTS-SRC)/SimpleTestBase.c $(LIBS)/libsimplecalendar.a $(OBJ-TESTS)/*.o -I $(TESTS-HEADS) $(FLAGS) $(FLAGSLIB) -o $(OBJ-TESTS)/SimpleCalendar
+compiletests: compile SimpleMillisecondsTest.compiletest
+	gcc $(TESTS-SRC)/SimpleTestBase.c $(LIBS)/libsimplecalendar.a $(OBJ-TESTS)/*.o -I $(TESTS-HEADS) $(FLAGS) $(PARAMFLAGS) $(FLAGSLIB) -o $(OBJ-TESTS)/SimpleCalendar
 
-run: tests
+compiledebug: 
+	make PARAMFLAGS=-g compiletests
+
+runtests: tests
 	$(OBJ-TESTS)/SimpleCalendar
