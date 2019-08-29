@@ -42,12 +42,14 @@
 #define NOVEMBER 10
 #define DECEMBER 11
 
-/*
- * Structs
+/**
+ * Tipo definido para representar milissegundos.
  */
-
 typedef long long int Milliseconds;
 
+/**
+ * Struct que representa uma data e hora por meio de números inteiros.
+ */
 typedef struct Calendar {
 	int timeZone;
     int year;
@@ -59,11 +61,28 @@ typedef struct Calendar {
     int millisecond;
 } Calendar;
 
+/**
+ * Struct para guarda um valor(podendo ser um ano, mês, dia hora e etc.) 
+ * e o millisegundos desse valor.
+ */
 typedef struct ExtractTime {
     int value;
     Milliseconds milliseconds;
 } ExtractTime;
 
+/**
+ * Struct que abriga varios ExtractTime com todos valores de um Calendar,
+ * cada ExtractTime contém o valor do calendar e o milissegundos inicial
+ * desse valor.
+ * 
+ * Em year vai abrigar o ano e o milissegundos de quando o ano começa,
+ * em month vai abrigar o mês e o milissegundos de quando o mês começa,
+ * em monthDay vai abrigar o dia e o milissegundos de quando o dia começa
+ * mantendo esse padrão até em milisecond.
+ * 
+ * Em alguns casos algumas váriaveis podem estar nulas isso vai depender de
+ * quais váriaveis você vai precisar.
+ */
 typedef struct ExtractCalendar {
     ExtractTime year;
     ExtractTime month;
@@ -74,10 +93,6 @@ typedef struct ExtractCalendar {
     ExtractTime millisecond;
 } ExtractCalendar;
 
-
-/*
- * Helper
- */
 
 /**
  * Verifica se é um ano bissexto.
