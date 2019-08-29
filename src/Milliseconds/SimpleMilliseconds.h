@@ -63,6 +63,4 @@ long long int scMilliCountSecond(Milliseconds milliseconds);
 
 int scMilliCompare(Milliseconds milliseconds, Milliseconds milliseconds2);
 
-void scMilliToString(Milliseconds milliseconds, char str[24]);
-
 #endif /* SIMPLEMILLISECONDS */
