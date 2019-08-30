@@ -52,12 +52,15 @@ int scMilliGetYearDay(Milliseconds milliseconds);
 int scMilliGetWeekMonth(Milliseconds milliseconds);
 int scMilliGetWeekYear(Milliseconds milliseconds);
 
-/* Counts */
+/* Diffs */
 
-long int scMilliCountMonthDay(Milliseconds milliseconds);
-long int scMilliCountHour(Milliseconds milliseconds);
-long long int scMilliCountMinute(Milliseconds milliseconds);
-long long int scMilliCountSecond(Milliseconds milliseconds);
+int scMilliDiffYear(Milliseconds milliseconds1, Milliseconds milliseconds2);
+long int scMilliDiffMonth(Milliseconds milliseconds1, Milliseconds milliseconds2);
+long int scMilliDiffMonthDay(Milliseconds milliseconds1, Milliseconds milliseconds2);
+long long int scMilliDiffHour(Milliseconds milliseconds1, Milliseconds milliseconds2);
+long long int scMilliDiffMinute(Milliseconds milliseconds1, Milliseconds milliseconds2);
+long long int scMilliDiffSecond(Milliseconds milliseconds1, Milliseconds milliseconds2);
+long long int scMilliDiffMilliecond(Milliseconds milliseconds1, Milliseconds milliseconds2);
 
 /* Outros */
 

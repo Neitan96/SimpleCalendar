@@ -53,17 +53,18 @@ int scCalGetYearDay(Calendar* calendar);
 int scCalGetWeekMonth(Calendar* calendar);
 int scCalGetWeekYear(Calendar* calendar);
 
-/* Counts */
+/* Diffs */
 
-long int scCalCountMonthDay(Calendar calendar);
-long int scCalCountHour(Calendar calendar);
-long long int scCalCountMinute(Calendar calendar);
-long long int scCalCountSecond(Calendar calendar);
+int scCalDiffYear(Calendar calendar1, Calendar calendar2);
+long int scCalDiffMonth(Calendar calendar1, Calendar calendar2);
+long int scCalDiffMonthDay(Calendar calendar1, Calendar calendar2);
+long long int scCalDiffHour(Calendar calendar1, Calendar calendar2);
+long long int scCalDiffMinute(Calendar calendar1, Calendar calendar2);
+long long int scCalDiffSecond(Calendar calendar1, Calendar calendar2);
+long long int scCalDiffMilliecond(Calendar calendar1, Calendar calendar2);
 
 /* Outros */
 
 int scCalCompare(Calendar calendar, Calendar calendar2);
-
-void scCalToString(Calendar calendar, char str[24]);
 
 #endif /* SIMPLECALENDAR */
