@@ -8,6 +8,10 @@
 #include "SimpleMilliseconds.h"
 #include "../Base/SimpleCalendarBase.h"
 
+Calendar scMilliDiff(Milliseconds milliseconds1, Milliseconds milliseconds2){
+	//TODO Milli Diff
+}
+
 int scMilliDiffYear(Milliseconds milliseconds1, Milliseconds milliseconds2){
 	//TODO Milli DiffYear
 }

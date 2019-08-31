@@ -54,6 +54,7 @@ int scMilliGetWeekYear(Milliseconds milliseconds);
 
 /* Diffs */
 
+Calendar scMilliDiff(Milliseconds milliseconds1, Milliseconds milliseconds2);
 int scMilliDiffYear(Milliseconds milliseconds1, Milliseconds milliseconds2);
 long int scMilliDiffMonth(Milliseconds milliseconds1, Milliseconds milliseconds2);
 long int scMilliDiffMonthDay(Milliseconds milliseconds1, Milliseconds milliseconds2);
